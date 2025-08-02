@@ -132,3 +132,38 @@ while true; do
             ;;
     esac
 done
+            echo -e "${BLUE}Ejecutando: Ver estado de distribuciones...${RESET}"
+            ejecutar_script "https://raw.githubusercontent.com/ChristopherAGT/aws-cloudfront/main/status-distribution.sh" "status-distribution.sh" false
+            pause
+            ;;
+        3)
+            echo -e "${BLUE}Ejecutando: Editar distribución...${RESET}"
+            ejecutar_script "https://raw.githubusercontent.com/ChristopherAGT/aws-cloudfront/main/edit-distribution.sh" "edit-distribution.sh" true
+            pause
+            ;;
+        4)
+            echo -e "${BLUE}Ejecutando: Activar/Desactivar distribución...${RESET}"
+            ejecutar_script "https://raw.githubusercontent.com/ChristopherAGT/aws-cloudfront/main/control-status-distribution.sh" "control-status-distribution.sh" true
+            pause
+            ;;
+        5)
+            echo -e "${BLUE}Ejecutando: Eliminar distribución...${RESET}"
+            ejecutar_script "https://raw.githubusercontent.com/ChristopherAGT/aws-cloudfront/main/delete-distribution.sh" "delete-distribution.sh" true
+            pause
+            ;;
+        6)
+            remover_panel
+            #pause
+            ;;
+        7)
+            echo -e "${MAGENTA}👋 Saliendo del panel...${RESET}"
+            echo -e "${CYAN}💡 Puedes ejecutar nuevamente el panel con el comando: ${BOLD}aws-manager${RESET}"
+            echo -e "${GREEN}📝 Créditos a 👾 Christopher Ackerman${RESET}"
+            exit 0
+            ;;
+        *)
+            echo -e "${RED}❌ Opción inválida. Por favor ingresa un número entre 1 y 7.${RESET}"
+            pause
+            ;;
+    esac
+done
